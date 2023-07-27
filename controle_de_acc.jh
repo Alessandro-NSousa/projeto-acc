@@ -1,0 +1,84 @@
+
+entity Usuario {
+	nome String required
+    login String required
+    senha String required
+    dataCadastro ZonedDateTime
+    ultimoAcesso ZonedDateTime
+    perfil Perfil required
+}
+
+entity Certificado{
+	titulo String
+    descricao TextBlob
+    dataEnvio ZonedDateTime
+    observacao TextBlob
+    modalidade Modalidade
+    chCuprida Integer
+    pontuacao Integer
+    status StatusCertificado
+    caminhoArquivo String
+    // tipoAtividade
+
+}
+entity TurmaACC {
+	nome String unique required
+	inicio LocalDate
+    termino LocalDate
+}
+
+entity Curso {
+	nomeCurso String required
+    sigla String	
+}
+
+enum Perfil {ALUNO,ORIENTADOR,COORDENADOR}
+
+enum StatusCertificado {
+	EM_ESPERA, EM_AVALIACAO, APROVADO_PARCIALMENTE, CONCLUIDO, NAO_CONCLUIDO, REPROVADO
+}
+
+enum Modalidade {
+	LOCAL, REGIONAL, NACIONAL, INTERNACIONAL, ONLINE
+}
+
+entity TipoAtividade {
+	nome String required
+    descricao TextBlob
+    numeroPontos Integer
+    dataCriacao ZonedDateTime
+}
+
+/*
+GRUPO_DE_ESTUDOS,
+    PARTICIPACAO_SIMPLES_EM_EVENTOS_PALESTRAS,
+    VOLUNTARIO_NA_ORGANIZACAO_DE_EVENTO_PALESTRA,
+    PUBLICACAO_DE_ARTIGO_TECNICO_EM_EVENTO_CIENTIFICO,
+    APRESENTACAO_PALESTRA_CONVIDADA,
+    CURSO_MINISTRADO_EM_EVENTO,
+    PUBLICACAO_DE_ARTIGO_TECNICO_EM_REVISTA_OU_PERIODICO,
+    MONITORIA,
+    PARTICIPACAO_EM_MARATONA_OU_GICANA_DE_PROGRAMACAO,
+    ATIVIDADE_TECNICA_EMPRESA_JR,
+    PROJETO_DE_EXTENSAO,
+    PROJETO_DE_PESQUISA,
+    PROJETO_DE_ENSINO,
+    ATIVIDADE_DEVISITA_OU_EXCURSAO,
+    CURSO_PRESENCIAL_OU_A_DISTANCIA,
+    CONCURSO_DE_EXCELENCIA_EM_TCC,
+    ESTAGIO_NAO_OBRIGATORIO,
+    REPRESENTACAO_ESTUDANTIL,
+    ASSISTENCIA_EM_DEFESA_DE_TCC_DISSERTACAO_OU_TESE
+*/
+
+
+relationship ManyToOne {
+	Certificado{usuario(nome)} to Usuario
+    Certificado{turmaAcc(nome)} to TurmaACC
+    Certificado{tipoAtividade(nome)} to TipoAtividade
+}
+relationship ManyToMany {
+	Usuario{turmas(nome)} to TurmaACC{usuarios(nome)}
+    Usuario{cursos(nomeCurso)} to Curso{usuarios(nome)}
+    Curso{turmas(nome)} to TurmaACC{cursos(nomeCurso)}
+}

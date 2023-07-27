@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20220505025812",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "curso",
+  "fields": [
+    {
+      "fieldName": "nomeCurso",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sigla",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Curso",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "turmaACC",
+      "otherEntityRelationshipName": "cursos",
+      "ownerSide": true,
+      "relationshipName": "turmas",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "cursos",
+      "ownerSide": false,
+      "relationshipName": "usuarios",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

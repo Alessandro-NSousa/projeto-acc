@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Certificado.
+    -->
+    <changeSet id="20220505025810-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="usuario_id"
+                                 baseTableName="certificado"
+                                 constraintName="fk_certificado__usuario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"/>
+
+        <addForeignKeyConstraint baseColumnNames="turma_acc_id"
+                                 baseTableName="certificado"
+                                 constraintName="fk_certificado__turma_acc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="turma_acc"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_atividade_id"
+                                 baseTableName="certificado"
+                                 constraintName="fk_certificado__tipo_atividade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_atividade"/>
+    </changeSet>
+</databaseChangeLog>

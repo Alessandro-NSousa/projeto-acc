@@ -1,0 +1,28 @@
+{
+  "controleDeAccApp": {
+    "turmaACC": {
+      "home": {
+        "title": "Turma ACCS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Turma ACC",
+        "createOrEditLabel": "Create or edit a Turma ACC",
+        "notFound": "No Turma ACCS found"
+      },
+      "created": "A new Turma ACC is created with identifier {{ param }}",
+      "updated": "A Turma ACC is updated with identifier {{ param }}",
+      "deleted": "A Turma ACC is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Turma ACC {{ id }}?"
+      },
+      "detail": {
+        "title": "Turma ACC"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "inicio": "Inicio",
+      "termino": "Termino",
+      "usuarios": "Usuarios",
+      "cursos": "Cursos"
+    }
+  }
+}

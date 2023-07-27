@@ -1,0 +1,13 @@
+{
+  "controleDeAccApp": {
+    "StatusCertificado": {
+      "null": "",
+      "EM_ESPERA": "Em espera",
+      "EM_AVALIACAO": "Em avaliação",
+      "APROVADO_PARCIALMENTE": "Aprovado parcialmenteE",
+      "CONCLUIDO": "Concluído",
+      "NAO_CONCLUIDO": "Não concluído",
+      "REPROVADO": "Reprovado"
+    }
+  }
+}

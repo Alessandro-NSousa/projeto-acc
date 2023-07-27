@@ -1,0 +1,11 @@
+id;titulo;descricao;data_envio;observacao;modalidade;ch_cuprida;pontuacao;status;caminho_arquivo
+1;Lindo Indian;../fake-data/blob/hipster.txt;2022-05-04T16:10:49;../fake-data/blob/hipster.txt;LOCAL;98951;120;EM_ESPERA;Loan Paraná
+2;Expanded Carro Pizza;../fake-data/blob/hipster.txt;2022-05-04T13:48:45;../fake-data/blob/hipster.txt;REGIONAL;74748;12967;REPROVADO;CSS Legacy
+3;open-source;../fake-data/blob/hipster.txt;2022-05-04T16:58:47;../fake-data/blob/hipster.txt;NACIONAL;34844;26812;REPROVADO;ouro Pequeno
+4;Factors;../fake-data/blob/hipster.txt;2022-05-04T23:07:49;../fake-data/blob/hipster.txt;NACIONAL;2427;11484;APROVADO_PARCIALMENTE;França
+5;Web;../fake-data/blob/hipster.txt;2022-05-04T11:45:53;../fake-data/blob/hipster.txt;INTERNACIONAL;90604;15013;APROVADO_PARCIALMENTE;Phased
+6;grow bandwidth;../fake-data/blob/hipster.txt;2022-05-04T15:14:13;../fake-data/blob/hipster.txt;REGIONAL;26864;18770;EM_AVALIACAO;Avon
+7;pele supply-chains;../fake-data/blob/hipster.txt;2022-05-04T19:39:10;../fake-data/blob/hipster.txt;NACIONAL;81973;11772;NAO_CONCLUIDO;Assistant Won
+8;East;../fake-data/blob/hipster.txt;2022-05-04T07:36:34;../fake-data/blob/hipster.txt;INTERNACIONAL;2140;67520;REPROVADO;Espanha mission-critical
+9;Investor;../fake-data/blob/hipster.txt;2022-05-05T02:47:03;../fake-data/blob/hipster.txt;NACIONAL;85668;35481;REPROVADO;Intuitive
+10;Estônia whiteboard;../fake-data/blob/hipster.txt;2022-05-04T18:42:09;../fake-data/blob/hipster.txt;NACIONAL;19476;69407;REPROVADO;bronze

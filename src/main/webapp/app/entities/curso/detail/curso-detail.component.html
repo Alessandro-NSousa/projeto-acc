@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="curso">
+      <h2 data-cy="cursoDetailsHeading"><span jhiTranslate="controleDeAccApp.curso.detail.title">Curso</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ curso.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.curso.nomeCurso">Nome Curso</span></dt>
+        <dd>
+          <span>{{ curso.nomeCurso }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.curso.sigla">Sigla</span></dt>
+        <dd>
+          <span>{{ curso.sigla }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.curso.turmas">Turmas</span></dt>
+        <dd>
+          <span *ngFor="let turmas of curso.turmas; let last = last">
+            <a [routerLink]="['/turma-acc', turmas?.id, 'view']">{{ turmas.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/curso', curso.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

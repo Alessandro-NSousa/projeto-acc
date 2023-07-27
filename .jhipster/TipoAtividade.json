@@ -1,0 +1,34 @@
+{
+  "applications": "*",
+  "changelogDate": "20220507025608",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_atividade",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "numeroPontos",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dataCriacao",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TipoAtividade",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

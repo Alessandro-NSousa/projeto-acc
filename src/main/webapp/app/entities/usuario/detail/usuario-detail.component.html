@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="usuario">
+      <h2 data-cy="usuarioDetailsHeading"><span jhiTranslate="controleDeAccApp.usuario.detail.title">Usuario</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ usuario.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.nome">Nome</span></dt>
+        <dd>
+          <span>{{ usuario.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.login">Login</span></dt>
+        <dd>
+          <span>{{ usuario.login }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.senha">Senha</span></dt>
+        <dd>
+          <span>{{ usuario.senha }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.dataCadastro">Data Cadastro</span></dt>
+        <dd>
+          <span>{{ usuario.dataCadastro | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.ultimoAcesso">Ultimo Acesso</span></dt>
+        <dd>
+          <span>{{ usuario.ultimoAcesso | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.perfil">Perfil</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'controleDeAccApp.Perfil.' + usuario.perfil }}">{{ usuario.perfil }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.turmas">Turmas</span></dt>
+        <dd>
+          <span *ngFor="let turmas of usuario.turmas; let last = last">
+            <a [routerLink]="['/turma-acc', turmas?.id, 'view']">{{ turmas.nome }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.usuario.cursos">Cursos</span></dt>
+        <dd>
+          <span *ngFor="let cursos of usuario.cursos; let last = last">
+            <a [routerLink]="['/curso', cursos?.id, 'view']">{{ cursos.nomeCurso }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/usuario', usuario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

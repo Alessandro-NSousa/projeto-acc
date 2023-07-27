@@ -1,0 +1,35 @@
+{
+  "controleDeAccApp": {
+    "certificado": {
+      "home": {
+        "title": "Certificados",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Certificado",
+        "createOrEditLabel": "Criar ou editar Certificado",
+        "notFound": "Nenhum Certificado encontrado"
+      },
+      "created": "Um novo Certificado foi criado com o identificador {{ param }}",
+      "updated": "Um Certificado foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Certificado foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Certificado {{ id }}?"
+      },
+      "detail": {
+        "title": "Certificado"
+      },
+      "id": "ID",
+      "titulo": "Titulo",
+      "descricao": "Descrição",
+      "dataEnvio": "Data Envio",
+      "observacao": "Observação",
+      "modalidade": "Modalidade",
+      "chCuprida": "Carga horária Cuprida",
+      "pontuacao": "Pontuação",
+      "status": "Status",
+      "caminhoArquivo": "Caminho  do Arquivo",
+      "usuario": "Usuário",
+      "turmaAcc": "Turma Acc",
+      "tipoAtividade": "Tipo de Atividade"
+    }
+  }
+}

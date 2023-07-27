@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="TipoAtividadeHeading">
+    <span jhiTranslate="controleDeAccApp.tipoAtividade.home.title">Tipo Atividades</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="controleDeAccApp.tipoAtividade.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-tipo-atividade"
+        [routerLink]="['/tipo-atividade/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="controleDeAccApp.tipoAtividade.home.createLabel"> Create a new Tipo Atividade </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="tipoAtividades?.length === 0">
+    <span jhiTranslate="controleDeAccApp.tipoAtividade.home.notFound">No tipoAtividades found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="tipoAtividades && tipoAtividades.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.tipoAtividade.nome">Nome</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.tipoAtividade.descricao">Descricao</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.tipoAtividade.numeroPontos">Numero Pontos</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.tipoAtividade.dataCriacao">Data Criacao</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tipoAtividade of tipoAtividades; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/tipo-atividade', tipoAtividade.id, 'view']">{{ tipoAtividade.id }}</a>
+          </td>
+          <td>{{ tipoAtividade.nome }}</td>
+          <td>{{ tipoAtividade.descricao }}</td>
+          <td>{{ tipoAtividade.numeroPontos }}</td>
+          <td>{{ tipoAtividade.dataCriacao | formatMediumDatetime }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/tipo-atividade', tipoAtividade.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/tipo-atividade', tipoAtividade.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(tipoAtividade)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

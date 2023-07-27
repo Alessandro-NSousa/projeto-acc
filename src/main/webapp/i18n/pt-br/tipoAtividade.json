@@ -1,0 +1,27 @@
+{
+  "controleDeAccApp": {
+    "tipoAtividade": {
+      "home": {
+        "title": "Tipos de Atividade",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo",
+        "createOrEditLabel": "Criar ou editar Tipo Atividade",
+        "notFound": "Nenhum Tipo Atividade encontrado"
+      },
+      "created": "Um novo Tipo Atividade foi criado",
+      "updated": "Dados atualizados",
+      "deleted": "Atividade com o identificador {{ param }} foi excluída",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir essa Atividade {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipos de atividade"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descrição",
+      "numeroPontos": "Número Pontos",
+      "dataCriacao": "Data de Criação"
+    }
+  }
+}

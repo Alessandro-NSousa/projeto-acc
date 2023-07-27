@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20220505025809",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "usuario",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "login",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "senha",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "ultimoAcesso",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "perfil",
+      "fieldType": "Perfil",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ALUNO,ORIENTADOR,COORDENADOR"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Usuario",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "turmaACC",
+      "otherEntityRelationshipName": "usuarios",
+      "ownerSide": true,
+      "relationshipName": "turmas",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "nomeCurso",
+      "otherEntityName": "curso",
+      "otherEntityRelationshipName": "usuarios",
+      "ownerSide": true,
+      "relationshipName": "cursos",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "no"
+}

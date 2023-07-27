@@ -1,0 +1,27 @@
+{
+  "controleDeAccApp": {
+    "tipoAtividade": {
+      "home": {
+        "title": "Tipo Atividades",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Tipo Atividade",
+        "createOrEditLabel": "Create or edit a Tipo Atividade",
+        "notFound": "No Tipo Atividades found"
+      },
+      "created": "A new Tipo Atividade is created with identifier {{ param }}",
+      "updated": "A Tipo Atividade is updated with identifier {{ param }}",
+      "deleted": "A Tipo Atividade is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Atividade {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Atividade"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "numeroPontos": "Numero Pontos",
+      "dataCriacao": "Data Criacao"
+    }
+  }
+}

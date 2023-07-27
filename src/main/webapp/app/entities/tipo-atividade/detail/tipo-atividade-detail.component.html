@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tipoAtividade">
+      <h2 data-cy="tipoAtividadeDetailsHeading"><span jhiTranslate="controleDeAccApp.tipoAtividade.detail.title">Tipo Atividade</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ tipoAtividade.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.tipoAtividade.nome">Nome</span></dt>
+        <dd>
+          <span>{{ tipoAtividade.nome }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.tipoAtividade.descricao">Descricao</span></dt>
+        <dd>
+          <span>{{ tipoAtividade.descricao }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.tipoAtividade.numeroPontos">Numero Pontos</span></dt>
+        <dd>
+          <span>{{ tipoAtividade.numeroPontos }}</span>
+        </dd>
+        <dt><span jhiTranslate="controleDeAccApp.tipoAtividade.dataCriacao">Data Criacao</span></dt>
+        <dd>
+          <span>{{ tipoAtividade.dataCriacao | formatMediumDatetime }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tipo-atividade', tipoAtividade.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

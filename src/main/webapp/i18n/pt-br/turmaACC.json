@@ -1,0 +1,28 @@
+{
+  "controleDeAccApp": {
+    "turmaACC": {
+      "home": {
+        "title": "Turmas ACC",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar nova Turma",
+        "createOrEditLabel": "Criar ou editar Turma",
+        "notFound": "Nenhuma Turma encontrado"
+      },
+      "created": "Uma nova Turma foi criado.",
+      "updated": "Dados da turma atualizados",
+      "deleted": "Turma foi excluída",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir a Turma ACC {{ id }}?"
+      },
+      "detail": {
+        "title": "Turma ACC"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "inicio": "Inicio",
+      "termino": "Termino",
+      "usuarios": "Usuarios",
+      "cursos": "Cursos"
+    }
+  }
+}

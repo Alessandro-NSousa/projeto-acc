@@ -1,0 +1,112 @@
+<div>
+  <h2 id="page-heading" data-cy="CertificadoHeading">
+    <span jhiTranslate="controleDeAccApp.certificado.home.title">Certificados</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="controleDeAccApp.certificado.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-certificado"
+        [routerLink]="['/certificado/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="controleDeAccApp.certificado.home.createLabel"> Create a new Certificado </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="certificados?.length === 0">
+    <span jhiTranslate="controleDeAccApp.certificado.home.notFound">No certificados found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="certificados && certificados.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.titulo">Titulo</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.descricao">Descricao</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.dataEnvio">Data Envio</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.observacao">Observacao</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.modalidade">Modalidade</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.chCuprida">Ch Cuprida</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.pontuacao">Pontuacao</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.caminhoArquivo">Caminho Arquivo</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.usuario">Usuario</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.turmaAcc">Turma Acc</span></th>
+          <th scope="col"><span jhiTranslate="controleDeAccApp.certificado.tipoAtividade">Tipo Atividade</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let certificado of certificados; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/certificado', certificado.id, 'view']">{{ certificado.id }}</a>
+          </td>
+          <td>{{ certificado.titulo }}</td>
+          <td>{{ certificado.descricao }}</td>
+          <td>{{ certificado.dataEnvio | formatMediumDatetime }}</td>
+          <td>{{ certificado.observacao }}</td>
+          <td jhiTranslate="{{ 'controleDeAccApp.Modalidade.' + certificado.modalidade }}">{{ certificado.modalidade }}</td>
+          <td>{{ certificado.chCuprida }}</td>
+          <td>{{ certificado.pontuacao }}</td>
+          <td jhiTranslate="{{ 'controleDeAccApp.StatusCertificado.' + certificado.status }}">{{ certificado.status }}</td>
+          <td>{{ certificado.caminhoArquivo }}</td>
+          <td>
+            <div *ngIf="certificado.usuario">
+              <a [routerLink]="['/usuario', certificado.usuario?.id, 'view']">{{ certificado.usuario?.nome }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="certificado.turmaAcc">
+              <a [routerLink]="['/turma-acc', certificado.turmaAcc?.id, 'view']">{{ certificado.turmaAcc?.nome }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="certificado.tipoAtividade">
+              <a [routerLink]="['/tipo-atividade', certificado.tipoAtividade?.id, 'view']">{{ certificado.tipoAtividade?.nome }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/certificado', certificado.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/certificado', certificado.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(certificado)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

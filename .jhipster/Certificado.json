@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20220505025810",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "certificado",
+  "fields": [
+    {
+      "fieldName": "titulo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "dataEnvio",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "observacao",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "modalidade",
+      "fieldType": "Modalidade",
+      "fieldValues": "LOCAL,REGIONAL,NACIONAL,INTERNACIONAL,ONLINE"
+    },
+    {
+      "fieldName": "chCuprida",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pontuacao",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "StatusCertificado",
+      "fieldValues": "EM_ESPERA,EM_AVALIACAO,APROVADO_PARCIALMENTE,CONCLUIDO,NAO_CONCLUIDO,REPROVADO"
+    },
+    {
+      "fieldName": "caminhoArquivo",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Certificado",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "certificado",
+      "relationshipName": "usuario",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "turmaACC",
+      "otherEntityRelationshipName": "certificado",
+      "relationshipName": "turmaAcc",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "tipoAtividade",
+      "otherEntityRelationshipName": "certificado",
+      "relationshipName": "tipoAtividade",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,131 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-usuario-heading" data-cy="UsuarioCreateUpdateHeading" jhiTranslate="controleDeAccApp.usuario.home.createOrEditLabel">
+        Create or edit a Usuario
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.nome" for="field_nome">Nome</label>
+          <input type="text" class="form-control" name="nome" id="field_nome" data-cy="nome" formControlName="nome" />
+          <div *ngIf="editForm.get('nome')!.invalid && (editForm.get('nome')!.dirty || editForm.get('nome')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nome')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.login" for="field_login">Login</label>
+          <input type="text" class="form-control" name="login" id="field_login" data-cy="login" formControlName="login" />
+          <div *ngIf="editForm.get('login')!.invalid && (editForm.get('login')!.dirty || editForm.get('login')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('login')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.senha" for="field_senha">Senha</label>
+          <input type="text" class="form-control" name="senha" id="field_senha" data-cy="senha" formControlName="senha" />
+          <div *ngIf="editForm.get('senha')!.invalid && (editForm.get('senha')!.dirty || editForm.get('senha')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('senha')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.dataCadastro" for="field_dataCadastro">Data Cadastro</label>
+          <div class="d-flex">
+            <input
+              id="field_dataCadastro"
+              data-cy="dataCadastro"
+              type="datetime-local"
+              class="form-control"
+              name="dataCadastro"
+              formControlName="dataCadastro"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.ultimoAcesso" for="field_ultimoAcesso">Ultimo Acesso</label>
+          <div class="d-flex">
+            <input
+              id="field_ultimoAcesso"
+              data-cy="ultimoAcesso"
+              type="datetime-local"
+              class="form-control"
+              name="ultimoAcesso"
+              formControlName="ultimoAcesso"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="controleDeAccApp.usuario.perfil" for="field_perfil">Perfil</label>
+          <select class="form-control" name="perfil" formControlName="perfil" id="field_perfil" data-cy="perfil">
+            <option [ngValue]="null">{{ 'controleDeAccApp.Perfil.null' | translate }}</option>
+            <option *ngFor="let perfil of perfilValues" [value]="perfil">{{ 'controleDeAccApp.Perfil.' + perfil | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('perfil')!.invalid && (editForm.get('perfil')!.dirty || editForm.get('perfil')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('perfil')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="controleDeAccApp.usuario.turmas" for="field_turmas">Turmas</label>
+          <select class="form-control" id="field_turmas" data-cy="turmas" multiple name="turmas" formControlName="turmas">
+            <option
+              [ngValue]="getSelectedTurmaACC(turmaACCOption, editForm.get('turmas')!.value)"
+              *ngFor="let turmaACCOption of turmaACCSSharedCollection; trackBy: trackTurmaACCById"
+            >
+              {{ turmaACCOption.nome }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="controleDeAccApp.usuario.cursos" for="field_cursos">Cursos</label>
+          <select class="form-control" id="field_cursos" data-cy="cursos" multiple name="cursos" formControlName="cursos">
+            <option
+              [ngValue]="getSelectedCurso(cursoOption, editForm.get('cursos')!.value)"
+              *ngFor="let cursoOption of cursosSharedCollection; trackBy: trackCursoById"
+            >
+              {{ cursoOption.nomeCurso }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

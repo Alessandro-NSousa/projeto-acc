@@ -1,0 +1,12 @@
+{
+  "controleDeAccApp": {
+    "Modalidade": {
+      "null": "",
+      "LOCAL": "Local",
+      "REGIONAL": "Regional",
+      "NACIONAL": "Nacional",
+      "INTERNACIONAL": "Internacional",
+      "ONLINE": "Online"
+    }
+  }
+}
