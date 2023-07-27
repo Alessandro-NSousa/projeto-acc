@@ -21,3 +21,13 @@ Main page styles
     background-size: contain;
   }
 }
+
+.parallax {
+  background-image: url('../../content/images/imagem-home.jpg');
+  min-height: 500px;
+  max-width: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
