@@ -1,30 +1,28 @@
-<div class="container">
-  <div class="row mt-5 mb-5">
-    <div class="col-md-12">
-      <h1 class="text-center">Faculdade de Computação</h1>
-    </div>
+<div class="row mt-5 mb-5">
+  <div class="col-md-12">
+    <h1 class="text-center">Faculdade de Computação</h1>
   </div>
-  <div class="row mb-5">
-    <div class="col-md-12">
-      <p class="text-center">Bem vindo ao Sitema de Atividades Científico-Culturais (ACC) da UFPA Castanhal.</p>
-    </div>
+</div>
+<div class="row mb-5">
+  <div class="col-md-12">
+    <h3 class="text-center">Bem vindo ao Sitema de Atividades Científico-Culturais (ACC) da UFPA Castanhal.</h3>
   </div>
+</div>
 
-  <div class="parallax"></div>
+<div class="parallax"></div>
 
-  <div class="row mt-5 mb-5">
-    <div class="col-md-12 d-flex justify-content-center">
-      <div [ngSwitch]="account !== null">
-        <div class="alert alert-success" *ngSwitchCase="true">
-          <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
-            >You are logged in as user "{{ account.login }}".</span
-          >
-        </div>
+<div class="row mt-5 mb-5">
+  <div class="col-md-12 d-flex justify-content-center">
+    <div [ngSwitch]="account !== null">
+      <div class="alert alert-success" *ngSwitchCase="true">
+        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
+          >You are logged in as user "{{ account.login }}".</span
+        >
+      </div>
 
-        <div class="alert alert-warning" *ngSwitchCase="false">
-          <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
-          <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
-        </div>
+      <div class="alert alert-warning" *ngSwitchCase="false">
+        <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+        <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
       </div>
     </div>
   </div>
