@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'jhi-footer',
@@ -8,4 +9,6 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 })
 export class FooterComponent {
   faHome = faHome;
+  github = faGithub;
+  instagram = faInstagram;
 }
