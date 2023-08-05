@@ -4,11 +4,31 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">alo</h5>
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Sistema de ACC</h5>
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div>Some text as a placeholder. In real life, you can have the elements you have chosen. Like text, images, lists, etc.</div>
+    <div class="row mt-5 mb-5">
+      <div class="col-md-12 d-flex justify-content-center">
+        <div [ngSwitch]="account !== null">
+          <div class="alert alert-success" *ngSwitchCase="true">
+            <span
+              id="home-logged-message"
+              *ngIf="account"
+              jhiTranslate="home.logged.message"
+              [translateValues]="{ username: account.login }"
+              >You are logged in as user "{{ account.login }}".</span
+            >
+          </div>
+
+          <div *ngSwitchCase="false">
+            <router-outlet name="login"></router-outlet>
+            <span jhiTranslate="global.messages.info.register.noaccount">You don't have an account yet?</span>&nbsp;
+            <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="dropdown">
       <button
         class="btn btn-secondary dropdown-toggle"
@@ -25,5 +45,8 @@
         <li><a class="dropdown-item" href="#">Something else here</a></li>
       </ul>
     </div>
+  </div>
+  <div class="offcanvas-footer ml-5">
+    <a href="#">link</a>
   </div>
 </div>

@@ -5,7 +5,8 @@ import { LoginComponent } from './login.component';
 export const LOGIN_ROUTE: Route = {
   path: '',
   component: LoginComponent,
-  data: {
-    pageTitle: 'login.title',
-  },
+  outlet: 'login',
+  // data: {
+  //pageTitle: 'login.title',
+  //},
 };
